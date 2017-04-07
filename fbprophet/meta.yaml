@@ -1,0 +1,68 @@
+package:
+  name: fbprophet
+  version: "0.1.post1"
+
+source:
+  fn: fbprophet-0.1.post1.tar.gz
+  url: https://pypi.python.org/packages/b1/ba/237a6875e9a61dcef997399b988afedbbdea112ae5ef7e0ad99faca1e9f4/fbprophet-0.1.post1.tar.gz
+  md5: a7afb620fa2f98a27219a62b6f1b2db0
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - fbprophet = fbprophet:main
+    #
+    # Would create an entry point called fbprophet that calls fbprophet.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - pandas
+    - pystan
+    - matplotlib
+
+  run:
+    - python
+    - pandas
+    - pystan
+    - matplotlib
+
+test:
+  # Python imports
+  imports:
+    - fbprophet
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://facebookincubator.github.io/prophet/
+  license: BSD
+  summary: 'Automatic Forecasting Procedure'
+  license_family: BSD
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
