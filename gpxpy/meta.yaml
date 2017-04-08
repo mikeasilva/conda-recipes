@@ -1,0 +1,61 @@
+package:
+  name: gpxpy
+  version: "1.1.2"
+
+source:
+  fn: gpxpy-1.1.2.tar.gz
+  url: https://pypi.python.org/packages/51/3c/29004507bc4d5c1248a1a37ec01c2030b2e977609c219244d81f3041b745/gpxpy-1.1.2.tar.gz
+  md5: 8abc7b53147e9632c77ab1e6605619d6
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - gpxpy = gpxpy:main
+    #
+    # Would create an entry point called gpxpy that calls gpxpy.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+
+  run:
+    - python
+
+test:
+  # Python imports
+  imports:
+    - gpxpy
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: http://www.trackprofiler.com/gpxpy/index.html
+  license: Apache License, Version 2.0
+  summary: 'GPX file parser and GPS track manipulation library'
+  license_family: APACHE
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
