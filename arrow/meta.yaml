@@ -1,11 +1,11 @@
 package:
-  name: shapely
-  version: "1.6b4"
+  name: arrow
+  version: "0.10.0"
 
 source:
-  fn: Shapely-1.6b4.tar.gz
-  url: https://pypi.python.org/packages/9c/51/45a7f07b2149558f38f449c78b72b44935e8fba40a653fdf71e05dbf3484/Shapely-1.6b4.tar.gz
-  md5: 37f2f1951253129841da892500b24461
+  fn: arrow-0.10.0.tar.gz
+  url: https://pypi.python.org/packages/54/db/76459c4dd3561bbe682619a5c576ff30c42e37c2e01900ed30a501957150/arrow-0.10.0.tar.gz
+  md5: 5d00592200050ad58284d45a4ee147c6
 #  patches:
    # List any patch files here
    # - fix.patch
@@ -17,9 +17,9 @@ source:
     # Put any entry points (scripts to be generated automatically) here. The
     # syntax is module:function.  For example
     #
-    # - shapely = shapely:main
+    # - arrow = arrow:main
     #
-    # Would create an entry point called shapely that calls shapely.main()
+    # Would create an entry point called arrow that calls arrow.main()
 
 
   # If this is a new build for the same version, increment the build
@@ -30,19 +30,16 @@ requirements:
   build:
     - python
     - setuptools
+    - python-dateutil
 
   run:
     - python
+    - python-dateutil
 
 test:
   # Python imports
   imports:
-    - shapely
-    - shapely.algorithms
-    - shapely.examples
-    - shapely.geometry
-    - shapely.speedups
-    - shapely.vectorized
+    - arrow
 
   # commands:
     # You can put test commands to be run here.  Use this to test that the
@@ -57,10 +54,10 @@ test:
     # - nose
 
 about:
-  home: https://github.com/Toblerity/Shapely
-  license: BSD License
-  summary: 'Geometric objects, predicates, and operations'
-  license_family: BSD
+  home: https://github.com/crsmithdev/arrow/
+  license: Apache Software License
+  summary: 'Better dates and times for Python'
+  license_family: APACHE
 
 # See
 # http://docs.continuum.io/conda/build.html for
