@@ -1,0 +1,62 @@
+package:
+  name: viridis
+  version: "0.4.1"
+
+source:
+  fn: viridis-0.4.1.tar.gz
+  url: https://pypi.python.org/packages/59/85/d065d379febc17cb92d3d61b4f0aae50bc4ccbcb7fe30fc19bec3a6cbc90/viridis-0.4.1.tar.gz
+  md5: aac1ee2c68eae762b83341e83b78865e
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - viridis = viridis:main
+    #
+    # Would create an entry point called viridis that calls viridis.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+
+test:
+  # Python imports
+  imports:
+    - viridis
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://github.com/jni/viridis
+  license: BSD License
+  summary: 'Tree data structures and algorithms'
+  license_family: BSD
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
