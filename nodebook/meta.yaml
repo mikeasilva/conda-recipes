@@ -1,0 +1,57 @@
+{% set name = "nodebook" %}
+{% set version = "0.1.0" %}
+{% set hash_type = "sha256" %}
+{% set hash_value = "79c5c39bd172c87c86ba9bc1b174eab097cbefdb091f4bfd156f4132ade62158" %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  fn: '{{ name }}-{{ version }}.tar.gz'
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  '{{ hash_type }}': '{{ hash_value }}'
+
+build:
+  number: 0
+  script: python setup.py install  --single-version-externally-managed --record=record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - ipython <6
+    - jupyter
+    - click
+    - dill
+    - msgpack-python
+    - pandas
+    - pytest-runner
+  run:
+    - python
+    - ipython <6
+    - jupyter
+    - click
+    - dill
+    - msgpack-python
+    - pandas
+    - pytest-runner
+
+test:
+  imports:
+    - nodebook
+  requires:
+    - pytest
+
+about:
+  home: https://github.com/stitchfix/nodebook
+  license: Stitch Fix 2017
+  license_family: OTHER
+  license_file: ''
+  summary: Nodebook Jupyter Extension
+  description: Nodebook Jupyter Extension
+  doc_url: ''
+  dev_url: ''
+
+extra:
+  recipe-maintainers: ''

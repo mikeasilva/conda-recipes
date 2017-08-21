@@ -1,0 +1,65 @@
+package:
+  name: whitenoise
+  version: "3.3.0"
+
+source:
+  fn: whitenoise-3.3.0.tar.gz
+  url: https://pypi.python.org/packages/74/89/118f65689c55422ab3e4ca6e8cc9d2c508b0d5ccc366c967da8127991e65/whitenoise-3.3.0.tar.gz
+  md5: add19d0d54ae66c30fe128fd3f3781f8
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - whitenoise = whitenoise:main
+    #
+    # Would create an entry point called whitenoise that calls whitenoise.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+
+test:
+  # Python imports
+  imports:
+    - whitenoise
+    - whitenoise.runserver_nostatic
+    - whitenoise.runserver_nostatic.management
+    - whitenoise.runserver_nostatic.management.commands
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: http://whitenoise.evans.io
+  license: MIT License
+  summary: 'Radically simplified static file serving for WSGI applications'
+  license_family: MIT
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
