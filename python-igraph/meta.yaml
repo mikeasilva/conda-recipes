@@ -1,0 +1,82 @@
+{% set name = "python-igraph" %}
+{% set version = "0.7.1.post6" %}
+{% set hash_type = "sha256" %}
+{% set hash_value = "a5ea42790a077eadb3d1e8f82edc47516fea4a2b26bbf52bfc148370fe0fe676" %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  fn: '{{ name }}-{{ version }}.tar.gz'
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  '{{ hash_type }}': '{{ hash_value }}'
+
+build:
+  number: 0
+  script: python setup.py install  --single-version-externally-managed --record=record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+
+test:
+  imports:
+    - igraph
+    - igraph.app
+    - igraph.drawing
+    - igraph.remote
+    - igraph.test
+    - igraph.vendor
+
+about:
+  home: http://pypi.python.org/pypi/python-igraph
+  license: GNU General Public License (GPL)
+  license_family: LGPL
+  license_file: ''
+  summary: High performance graph data structures and algorithms
+  description: 'Python interface to the igraph high performance graph
+
+    library, primarily aimed at complex network research and analysis.
+
+
+    Graph plotting functionality is provided by the Cairo library, so make
+
+    sure you install the Python bindings of Cairo if you want to generate
+
+    publication-quality graph plots.
+
+
+    See the `Cairo homepage <http://cairographics.org/pycairo>`_ for details.
+
+
+    From release 0.5, the C core of the igraph library is **not** included
+
+    in the Python distribution - you must compile and install the C core
+
+    separately. Windows installers already contain a compiled igraph DLL,
+
+    so they should work out of the box. Linux users should refer to the
+
+    `igraph homepage <http://igraph.org>`_ for
+
+    compilation instructions (but check your distribution first, maybe
+
+    there are pre-compiled packages available). OS X users may
+
+    benefit from the disk images in the Python Package Index.
+
+
+    Unofficial installers for 64-bit Windows machines and/or different Python
+
+    versions can also be found `here <http://www.lfd.uci.edu/~gohlke/pythonlibs>`_.
+
+    Many thanks to the maintainers of this page!'
+  doc_url: ''
+  dev_url: ''
+
+extra:
+  recipe-maintainers: ''
